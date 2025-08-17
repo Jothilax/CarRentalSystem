@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./signup.module.css";
+import { signupData } from "../services/CustomerService";
 
 function Signup() {
   const [form, setForm] = useState({
@@ -14,18 +15,30 @@ function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+  //   try {
+  //     const res = await axios.post(
+  //       "http://localhost:8000/carrentalapi/customer/customerSignup",
+  //       form
+  //     );
+  //     localStorage.setItem("token", res.data.token);
+  //     alert("Account created! Thanks for joining us." )
+  //     navigate("/carList");
+  //   } catch (err) {
+  //     alert(err.response.data.message);
+  //   }
+  // };
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8000/carrentalapi/customer/customerSignup",
-        form
-      );
+      const res = await signupData(form);   // ✅ call service
       localStorage.setItem("token", res.data.token);
-      alert("Account created! Thanks for joining us." )
+      alert("Account created! Thanks for joining us.");
       navigate("/carList");
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data?.message || "Signup failed");
     }
   };
 

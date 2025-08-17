@@ -3,28 +3,46 @@ import axios from "axios";
 import Navigation from "./Navigation";
 import styles from "./profile.module.css"; // create a new css file
 import { useNavigate } from "react-router-dom";
+import { getCustomerById } from "../services/CustomerService";
 
 export default function Profile() {
   const [customer, setCustomer] = useState(null);
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   fetchCustomer();
+  // }, []);
+
+  
+  // const fetchCustomer = async () => {
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const res = await axios.get(
+  //       "http://localhost:8000/carrentalapi/customer/getCustomerByCustId",
+  //       {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       }
+  //     );
+
+  //     if (res.data && res.data.data && res.data.data.length > 0) {
+  //       setCustomer(res.data.data[0]); // API returns array
+  //     }
+  //   } catch (err) {
+  //     console.error("Error fetching customer:", err);
+  //   }
+  // };
+
   useEffect(() => {
     fetchCustomer();
   }, []);
 
-  
   const fetchCustomer = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(
-        "http://localhost:8000/carrentalapi/customer/getCustomerByCustId",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const res = await getCustomerById(token);
 
       if (res.data && res.data.data && res.data.data.length > 0) {
-        setCustomer(res.data.data[0]); // API returns array
+        setCustomer(res.data.data[0]); // ✅ API returns array
       }
     } catch (err) {
       console.error("Error fetching customer:", err);

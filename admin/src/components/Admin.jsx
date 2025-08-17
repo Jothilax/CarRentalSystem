@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from './admin.module.css';
+import { adminLogin } from "../services/adminService";
 
 function Login() {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -14,7 +15,7 @@ function Login() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/carrentalapi/admin/adminlogin", form);
+      const res = await adminLogin(form);
     //   localStorage.setItem("token", res.data.token);
             alert("Admin Login successful!");
             navigate("/listCars");
@@ -22,6 +23,8 @@ function Login() {
       alert(err.response.data.message);
     }
   };
+
+  
 
   return (
     <div className={styles.loginpg}>

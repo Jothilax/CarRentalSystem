@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import styles from "./addBookings.module.css";
 import axios from "axios";
 import { getCars } from "../services/CarService";
+import { addBooking } from "../services/BookingService";
 
 export default function AddBooking() {
   const { car_id } = useParams(); // ✅ get car_id from URL
@@ -34,38 +35,63 @@ export default function AddBooking() {
     setBooking({ ...booking, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  
+  //   try {
+  //     const token = localStorage.getItem("token");
+  
+  //     const res = await axios.post(
+  //       "http://localhost:8000/carrentalapi/booking/addbooking",
+  //       {
+  //         car_id: car_id,             // ✅ from useParams
+  //         fromDate: booking.fromDate, // ✅ from state
+  //         toDate: booking.toDate,
+  //         fromLocation: booking.fromLocation,
+  //         toLocation: booking.toLocation,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  
+  //     console.log("Booking success:", res.data);
+  //     alert("Booking Confirmed!");
+  //     navigate("/bookings"); // redirect if you want
+  //   } catch (err) {
+  //     console.error("Booking failed:", err);
+  //     alert("Booking failed. Please login again.");
+  //   }
+  // };
+  
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
     try {
       const token = localStorage.getItem("token");
-  
-      const res = await axios.post(
-        "http://localhost:8000/carrentalapi/booking/addbooking",
+
+      const res = await addBooking(
         {
-          car_id: car_id,             // ✅ from useParams
-          fromDate: booking.fromDate, // ✅ from state
+          car_id: car_id,
+          fromDate: booking.fromDate,
           toDate: booking.toDate,
           fromLocation: booking.fromLocation,
           toLocation: booking.toLocation,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+        token
       );
-  
+
       console.log("Booking success:", res.data);
       alert("Booking Confirmed!");
-      navigate("/bookings"); // redirect if you want
+      navigate("/bookings");
     } catch (err) {
       console.error("Booking failed:", err);
       alert("Booking failed. Please login again.");
     }
   };
-  
-  
 
   return (
     <div className={styles.carList}>

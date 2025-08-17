@@ -291,7 +291,7 @@ const getBookingById = async (req, res, next) => {
               .exec();
   
           if (!bookings || bookings.length === 0) {
-              return res.status(404).json([]);
+              return res.status(200).json([]);
           }
   
           res.status(200).json(bookings); // ✅ return array only

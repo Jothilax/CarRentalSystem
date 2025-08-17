@@ -150,6 +150,52 @@ const getCarById = async (req, res, next) => {
 //   };
 
 
+// const updateCar = async (req, res, next) => {
+//   try {
+//     // Get the existing car
+//     const car = await Car.findById(req.params.id);
+//     if (!car) {
+//       return res.status(404).json({ message: "Car not found" });
+//     }
+
+//     let updateData = {
+//       ...req.body,
+//       updatedAt: new Date()
+//     };
+
+//     // Keep old images
+//     let updatedImages = [...(car.img || [])];
+
+//     // Add new images if uploaded
+//     if (req.files && req.files.length > 0) {
+//       const baseUrl = `${req.protocol}://${req.get('host')}`;
+//       const newImages = req.files.map(file =>
+//         `${baseUrl}/uploads/${file.filename}`
+//       );
+//       updatedImages = [...updatedImages, ...newImages];
+//     }
+
+//     updateData.img = updatedImages;
+
+//     // Update the car
+//     const updatedCar = await Car.findByIdAndUpdate(
+//       req.params.id,
+//       updateData,
+//       { new: true }
+//     );
+
+//     res.status(200).json({
+//       status: true,
+//       message: "Car updated successfully!",
+//       updatedCar
+//     });
+
+//   } catch (e) {
+//     console.error("Error:", e.message);
+//     res.status(400).json({ error: e.message });
+//   }
+// };
+
 const updateCar = async (req, res, next) => {
   try {
     // Get the existing car
@@ -166,12 +212,9 @@ const updateCar = async (req, res, next) => {
     // Keep old images
     let updatedImages = [...(car.img || [])];
 
-    // Add new images if uploaded
+    // Add new images if uploaded (store relative paths only)
     if (req.files && req.files.length > 0) {
-      const baseUrl = `${req.protocol}://${req.get('host')}`;
-      const newImages = req.files.map(file =>
-        `${baseUrl}/uploads/${file.filename}`
-      );
+      const newImages = req.files.map(file => `uploads/cars/${file.filename}`);
       updatedImages = [...updatedImages, ...newImages];
     }
 
@@ -195,7 +238,6 @@ const updateCar = async (req, res, next) => {
     res.status(400).json({ error: e.message });
   }
 };
-
 
 const deleteCar = async (req, res) => {
     try {

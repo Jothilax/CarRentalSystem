@@ -3,6 +3,7 @@ import axios from "axios";
 import Navigation from "./Navigation";
 import styles from "./booking.module.css";
 import { useNavigate } from "react-router-dom";
+import { getBookingsByCustomer } from "../services/BookingService";
 
 export default function Bookings() {
   const [bookings, setBookings] = useState([]);
@@ -31,22 +32,38 @@ export default function Bookings() {
 //     }
 //   };
 
-const fetchBookings = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      const res = await axios.get(
-        "http://localhost:8000/carrentalapi/booking/getBookingByCustId",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+// const fetchBookings = async () => {
+//     try {
+//       const token = localStorage.getItem("token");
+//       const res = await axios.get(
+//         "http://localhost:8000/carrentalapi/booking/getBookingByCustId",
+//         {
+//           headers: { Authorization: `Bearer ${token}` },
+//         }
+//       );
 
-      console.log("Full API Response:", res.data);
-      setBookings(res.data || []); // ✅ Fixed: backend sends array directly
-    } catch (err) {
-      console.error("Error fetching bookings:", err);
-    }
-  };
+//       console.log("Full API Response:", res.data);
+//       setBookings(res.data || []); // ✅ Fixed: backend sends array directly
+//     } catch (err) {
+//       console.error("Error fetching bookings:", err);
+//     }
+//   };
+
+useEffect(() => {
+  fetchBookings();
+}, []);
+
+const fetchBookings = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await getBookingsByCustomer(token);
+
+    console.log("Full API Response:", res.data);
+    setBookings(res.data || []); // ✅ backend sends array directly
+  } catch (err) {
+    console.error("Error fetching bookings:", err);
+  }
+};
 
   return (
     <div className={styles.carList}>
@@ -171,26 +188,12 @@ const fetchBookings = async () => {
 
               </div>
             
-            <div className={styles.row1}>
+            {/* <div className={styles.row1}>
                 
             <div className={styles.formElement}>
               <label className={styles.formLabel}>Total Rent</label>
               <input className={styles.formInputData} type="text" value={`₹${b.totalRent || 0}`} readOnly /></div>
-{/*               
-              <div className={styles.formElement}>
-              <label className={styles.formLabel}>Booking Approved</label>
-              <input className={styles.formInputData}
-                type="text"
-                value={
-                  b.bookingApproved === true
-                    ? "Approved - Enjoy Your Ride"
-                    : b.bookingApproved === false
-                    ? "Rejected"
-                    : "Pending"
-                }
-                readOnly
-              />
-            </div> */}
+
 
 <div className={styles.formElement}>
   <label className={styles.formLabel}>Booking Approved</label>
@@ -215,25 +218,83 @@ const fetchBookings = async () => {
 </div>
 
 
-            <div className={styles.formElement}>
-              {b.car_id?.img?.length > 0 && (
-                <div>
-                  {/* <label>Car Image</label> */}
-                  <img
-                    src={`http://localhost:8000/${b.car_id.img[0].replace(
-                      /\\/g,
-                      "/"
-                    )}`}
-                    alt="car"
-                    style={{ width: "200px", borderRadius: "8px" }}
-                  />
-                </div>
-              )}</div>
+        
 
-            </div>
+<div className={styles.formElement}>
+  <div className={styles.formInputData}>
+    {b.car_id?.img?.length > 0 ? (
+      b.car_id.img.map((imagePath, i) => (
+        <img
+          key={i}
+          src={`http://localhost:8000/${imagePath.replace(/\\/g, "/")}`}
+          alt={`car-${i}`}
+        />
+      ))
+    ) : (
+      <p>No images available</p>
+    )}
+  </div>
+</div>
+
+
+
+            </div> */}
             
 
         
+            <div className={styles.lastRow}>
+  {/* Total Rent */}
+  <div className={styles.formElement}>
+    <label className={styles.formLabel}>Total Rent</label>
+    <input
+      className={styles.formInputData}
+      type="text"
+      value={`₹${b.totalRent || 0}`}
+      readOnly
+    />
+  </div>
+
+  {/* Booking Approved */}
+  <div className={styles.formElement}>
+    <label className={styles.formLabel}>Booking Approved</label>
+    <input
+      className={`${styles.formInputData} ${
+        b.bookingApproved === true
+          ? styles.approved
+          : b.bookingApproved === false
+          ? styles.rejected
+          : styles.pending
+      }`}
+      type="text"
+      value={
+        b.bookingApproved === true
+          ? "Approved - Enjoy Your Ride"
+          : b.bookingApproved === false
+          ? "Rejected"
+          : "Pending"
+      }
+      readOnly
+    />
+  </div>
+
+  {/* Car Images */}
+  <div className={styles.formElement}>
+    <label className={styles.formLabel}>Car Images</label>
+    <div className={styles.imageGallery}>
+      {b.car_id?.img?.length > 0 ? (
+        b.car_id.img.map((imagePath, i) => (
+          <img
+            key={i}
+            src={`http://localhost:8000/${imagePath.replace(/\\/g, "/")}`}
+            alt={`car-${i}`}
+          />
+        ))
+      ) : (
+        <p>No images available</p>
+      )}
+    </div>
+  </div>
+</div>
 
          
           
