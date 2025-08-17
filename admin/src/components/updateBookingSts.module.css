@@ -1,0 +1,105 @@
+.pageLayout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Left Navigation Column */
+  .navCol {
+    width: 15%;
+    background-color: #3347B0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+  }
+  
+  /* Right Column */
+  .carClm {
+    margin-left: 15%;
+    width: 85%;
+    height: 100vh;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* Sticky Header */
+  .carDetailsHeader {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Form Layout */
+  .updateBookSts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .row1 {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .formElement {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formElement label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  
+  .formElement input,
+  .formElement select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Image & Button */
+  .imgbtn {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .imageDiv {
+    flex-shrink: 0;
+  }
+  
+  .carimg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .addCarBtn {
+    flex-grow: 1;
+  }
+  
+  .carBtn {
+    background-color: #3347B0;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .carBtn:hover {
+    background-color: #26388a;
+  }
+  

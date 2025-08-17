@@ -1,0 +1,85 @@
+/* auth.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  padding: 20px;
+}
+
+.formContainer {
+  background: #fff;
+  padding: 35px 45px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.formHeading {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.inputfeild {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.inputfeild:focus {
+  border-color: #185a9d;
+  outline: none;
+  box-shadow: 0 0 6px rgba(24, 90, 157, 0.4);
+}
+
+button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #185a9d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #0f3d6d;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.loginLink {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  cursor: pointer;
+  margin-top: -5px;
+  transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+  color: #185a9d;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

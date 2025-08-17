@@ -1,0 +1,107 @@
+/* Container for the whole page */
+.carList {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+/* Left nav column */
+.navCol {
+  flex: 0 0 220px;
+  background: #3949ab;
+  color: white;
+  padding: 1rem;
+  border-right: 2px solid #e0e0e0;
+}
+
+/* Right column for content */
+.carClm {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Car card */
+.card {
+  width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin: 0.8rem;
+  color: #222;
+}
+
+.card p {
+  margin: 0 0.8rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Booking form */
+.bookingForm {
+  flex: 1;
+  max-width: 400px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bookingForm label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.bookingForm input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.bookingForm input:focus {
+  border-color: #3949ab;
+  box-shadow: 0 0 4px rgba(57, 73, 171, 0.3);
+}
+
+/* Confirm Booking Button */
+.bookingBtn {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: #3949ab;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.bookingBtn:hover {
+  background: #2c387e;
+}

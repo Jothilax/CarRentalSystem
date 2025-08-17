@@ -1,0 +1,96 @@
+
+@import "../../vars.css";
+
+.carList {
+    display: flex;
+    height: 100vh;
+}
+
+.navCol {
+    width: 15%;
+    height: 100%;
+    background-color: #3f51b5; /* for seamless integration with sidebar */
+}
+
+.carClm {
+    width: 85%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+/* Booking container */
+.bookingContainer {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.bookingHeading {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Table */
+.bookingTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table header */
+.tableHeading th {
+    background-color: #3f51b5;
+    color: white;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Table body */
+.bookingTable td {
+    padding: 0.75rem;
+    text-align: center;
+    color: #555;
+}
+
+/* Zebra striping */
+.bookingTable tbody tr:nth-child(even) {
+    background-color: #f4f6fa;
+}
+
+/* Row hover effect */
+.bookingTable tbody tr:hover {
+    background-color: rgba(63, 81, 181, 0.1);
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Clickable "Booking Approved" cell */
+.bookingTable td:last-child {
+    cursor: pointer;
+    font-weight: 600;
+    color: #3f51b5;
+}
+
+.bookingTable td:last-child:hover {
+    text-decoration: underline;
+}
+
+/* Responsive scrolling */
+@media (max-width: 900px) {
+    .bookingTable {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+

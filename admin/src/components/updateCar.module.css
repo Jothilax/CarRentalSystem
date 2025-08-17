@@ -1,0 +1,198 @@
+@import "../../vars.css";
+
+/* .carList {
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+
+/* Left Navigation Column */
+/* .navCol {
+    width: 15%;
+    height: 100vh;
+    background-color: #3347B0;
+    padding-top: 1rem;
+} */
+
+/* Right Main Content */
+/* .carClm {
+    width: 85%;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* Page Title */
+.heading {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-decoration: underline;
+}
+
+/* Form Container */
+.updateCarDet {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.addCarForm {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Row Layout */
+.row1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Input Field Styles */
+.carFormdata,
+.carFormdataf,
+.carFormdatad {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    margin-top: 1rem;
+}
+
+.carFormkey {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.carInput,
+.carInputf,
+textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.carInput:focus,
+.carInputf:focus,
+textarea:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 5px rgba(74, 108, 247, 0.3);
+}
+
+/* Description + File Container */
+.descContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.fileContainer,
+.descriptionContainer {
+    flex: 1;
+    margin-top: 1rem;
+}
+
+/* Image Display */
+.imagesCont {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.carImage {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.carimg {
+    width: 120px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+/* Button */
+.uptBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBtn {
+    padding: 0.7rem 1.5rem;
+    background-color: #4a6cf7;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.addBtn:hover {
+    background-color: #3451c9;
+    transform: scale(1.03);
+}
+
+.carList {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent page scroll */
+}
+
+/* Fixed Navigation */
+.navCol {
+    width: 15%;
+    background-color: #3347B0;
+    height: 100vh;
+    position: fixed; /* Keep it fixed */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* If nav content exceeds height, scroll inside nav */
+}
+
+/* Scrollable Content Area */
+.carClm {
+    margin-left: 15%; /* Push it next to fixed nav */
+    width: 85%;
+    height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* This scrolls instead of the whole page */
+    padding-bottom: 2rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .row1 {
+        flex-direction: column;
+    }
+
+    .descContainer {
+        flex-direction: column;
+    }
+
+    .imagesCont {
+        flex-direction: column;
+        align-items: center;
+    }
+}

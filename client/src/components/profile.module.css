@@ -1,0 +1,72 @@
+.profilePage {
+    display: flex;
+    min-height: 100vh;
+    height: 100vh;
+  }
+  
+  .navCol {
+    /* flex: 0 0 220px; */
+    width: 15%;
+    background-color: #3f51b5;
+    /* padding: 10px; */
+    color: #fff;
+  }
+  
+  .profileClm {
+    flex: 1;
+    padding-top: 2vh;
+    /* padding: 10px; */
+    background-color: #f8f9ff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .heading {
+    padding-left: 3rem;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    padding-left: 3rem;
+    margin-left: 5%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex: 1; /* take full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center vertically */
+    max-width: 900px;
+  }
+  
+  .formRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  
+  .label {
+    flex: 0 0 150px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #f7f7f7;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #3f51b5;
+  }
+  

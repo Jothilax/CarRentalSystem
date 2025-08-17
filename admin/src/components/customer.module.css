@@ -1,0 +1,94 @@
+.carList {
+    display: flex;
+    height: 100vh;
+    overflow: hidden; /* Prevent page scroll */
+}
+
+/* Sidebar column */
+.navCol {
+    width: 15%;
+    height: 100%;
+    background-color: #3f51b5;
+    position: fixed; /* Keep sidebar fixed */
+    top: 0;
+    left: 0;
+}
+
+/* Main column */
+.carClm {
+    margin-left: 15%; /* Push content to the right of fixed sidebar */
+    width: 85%;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow-y: auto; /* Vertical scroll inside right column */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Customer container */
+.custContainer {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-width: 100%;
+    overflow-x: auto; /* Allow table scroll if needed */
+}
+
+/* Table */
+.custTable {
+    width: 100%;
+    min-width: 900px; /* Ensure wide tables don't break */
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table heading */
+.tableHeading th {
+    background-color: #3f51b5;
+    color: white;
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    white-space: nowrap; /* Keep headings in one line */
+}
+
+/* Table cells */
+.custTable td {
+    padding: 0.75rem;
+    text-align: center;
+    color: #555;
+    border-bottom: 1px solid #e0e0e0;
+    white-space: nowrap; /* Prevent column wrapping */
+}
+
+/* Zebra striping */
+.custTable tbody tr:nth-child(even) {
+    background-color: #f4f6fa;
+}
+
+/* Row hover effect */
+.custTable tbody tr:hover {
+    background-color: rgba(63, 81, 181, 0.1);
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Total Bookings badge */
+.custTable td:last-child {
+    font-weight: 600;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 5px;
+}
+
+/* Responsive: allow horizontal scroll on small screens */
+@media (max-width: 900px) {
+    .custContainer {
+        overflow-x: auto;
+    }
+    .custTable {
+        min-width: 800px;
+    }
+}
