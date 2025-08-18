@@ -1,0 +1,8 @@
+backend ==>  https://carrentalsystembackend-w0jf.onrender.com
+
+admin ==> https://carrentalsystemadmin.onrender.com/
+username - admin , password - admin@123
+
+client ==> https://carrentalsystemclient.onrender.com/
+
+github link ==> https://github.com/Jothilax/CarRentalSystem
