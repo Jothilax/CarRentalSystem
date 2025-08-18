@@ -3,7 +3,7 @@ import axios from "axios";
 import Navigation from "./Navigation";
 import styles from "./profile.module.css"; // create a new css file
 import { useNavigate } from "react-router-dom";
-import { getCustomerById } from "../services/CustomerService";
+import { getCustomerById } from "../services/customerService";
 
 export default function Profile() {
   const [customer, setCustomer] = useState(null);
