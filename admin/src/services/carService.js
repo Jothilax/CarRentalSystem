@@ -42,7 +42,7 @@
 import axios from "axios";
 
 // Base API URL
-const API_URL = "http://localhost:8000/carrentalapi/car";
+const API_URL = "https://carrentalsystembackend-w0jf.onrender.com/carrentalapi/car";
 
 // GET all cars
 export const getCars = () => axios.get(`${API_URL}/getCar`);
