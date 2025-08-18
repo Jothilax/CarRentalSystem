@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import styles from './updateCar.module.css';
-import { getCarById, updateCar } from "../services/CarService";
+import { getCarById, updateCar } from "../services/carService";
 
 export default function UpdateCarList() {
   const { id } = useParams();

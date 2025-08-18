@@ -3,7 +3,7 @@ import axios from "axios";
 import Navigation from './Navigation';
 import styles from './addcar.module.css';
 import { useNavigate } from "react-router-dom";
-import { createCar } from "../services/CarService";
+import { createCar } from "../services/carService";
 
 export default function AddCar() {
 
