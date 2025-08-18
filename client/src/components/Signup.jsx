@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./signup.module.css";
-import { signupData } from "../services/CustomerService";
+import { signupData } from "../services/customerService";
 
 function Signup() {
   const [form, setForm] = useState({
