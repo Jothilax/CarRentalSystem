@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from './Navigation'
 import styles from './listcars.module.css'
 import { useEffect, useState } from "react";
-import { getCars } from "../services/CarService";
+import { getCars } from "../services/carService";
 import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPlus , faPenToSquare , faTrash } from "@fortawesome/free-solid-svg-icons";
