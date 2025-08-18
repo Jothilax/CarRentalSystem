@@ -3,8 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import styles from "./addBookings.module.css";
 import axios from "axios";
-import { getCars } from "../services/CarService";
-import { addBooking } from "../services/BookingService";
+import { getCars } from "../services/carService";
+import { addBooking } from "../services/bookingService";
 
 export default function AddBooking() {
   const { car_id } = useParams(); // ✅ get car_id from URL
