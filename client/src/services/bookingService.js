@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base API URL
-const API_URL = "http://localhost:8000/carrentalapi/booking";
+const API_URL = "https://carrentalsystembackend-w0jf.onrender.com/carrentalapi/booking";
 
 // ✅ Add a new booking
 export const addBooking = (bookingData, token) =>
