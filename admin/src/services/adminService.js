@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/carrentalapi/admin";
+const API_URL = "https://carrentalsystembackend-w0jf.onrender.com/carrentalapi/admin";
 
 // ✅ Admin Login API
 export const adminLogin = async (credentials) => {
