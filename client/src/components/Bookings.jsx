@@ -3,7 +3,7 @@ import axios from "axios";
 import Navigation from "./Navigation";
 import styles from "./booking.module.css";
 import { useNavigate } from "react-router-dom";
-import { getBookingsByCustomer } from "../services/BookingService";
+import { getBookingsByCustomer } from "../services/bookingService";
 
 export default function Bookings() {
   const [bookings, setBookings] = useState([]);
@@ -285,7 +285,7 @@ const fetchBookings = async () => {
         b.car_id.img.map((imagePath, i) => (
           <img
             key={i}
-            src={`http://localhost:8000/${imagePath.replace(/\\/g, "/")}`}
+            src={`https://carrentalsystembackend-w0jf.onrender.com/${imagePath.replace(/\\/g, "/")}`}
             alt={`car-${i}`}
           />
         ))
