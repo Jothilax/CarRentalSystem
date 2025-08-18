@@ -165,7 +165,7 @@ export default function UpdateBookingSts() {
               {formData.img.length > 0 && (
                 <img
                   className={styles.carimg}
-                  src={`http://localhost:8000/${formData.img[0]}`}
+                  src={` https://carrentalsystembackend-w0jf.onrender.com/${formData.img[0]}`}
                   alt="Car"
                 />
               )}
