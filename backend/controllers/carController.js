@@ -33,26 +33,26 @@ res.status(400).json({"error ": e.message});
 //     }
 
 // }
-const getCar = async (req, res, next) => {
-    try {
-        const baseUrl = `${req.protocol}://${req.get('host')}`;
+// const getCar = async (req, res, next) => {
+//     try {
+//         const baseUrl = `${req.protocol}://${req.get('host')}`;
 
-        const getCarList = await Car.find();
+//         const getCarList = await Car.find();
 
-        const carsWithPublicUrls = getCarList.map(car => {
-            return {
-                ...car.toObject(),
-                img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
-            };
-        });
+//         const carsWithPublicUrls = getCarList.map(car => {
+//             return {
+//                 ...car.toObject(),
+//                 img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
+//             };
+//         });
 
-        res.status(200).json(carsWithPublicUrls);
+//         res.status(200).json(carsWithPublicUrls);
 
-    } catch (e) {
-        console.error("Error:", e.message);
-        res.status(500).json({ error: e.message });
-    }
-};
+//     } catch (e) {
+//         console.error("Error:", e.message);
+//         res.status(500).json({ error: e.message });
+//     }
+// };
 
 // const getCarById = async(req,res,next)=>{
 // try {
@@ -73,27 +73,27 @@ const getCar = async (req, res, next) => {
 // }
 // }
 
-const getCarById = async (req, res, next) => {
-    try {
-        const baseUrl = `${req.protocol}://${req.get('host')}`;
+// const getCarById = async (req, res, next) => {
+//     try {
+//         const baseUrl = `${req.protocol}://${req.get('host')}`;
 
-        const car = await Car.findById(req.params.id);
+//         const car = await Car.findById(req.params.id);
 
-        if (!car) {
-            return res.status(404).json({ message: "Car not found" });
-        }
+//         if (!car) {
+//             return res.status(404).json({ message: "Car not found" });
+//         }
 
-        const carWithPublicUrls = {
-            ...car.toObject(),
-            img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
-        };
+//         const carWithPublicUrls = {
+//             ...car.toObject(),
+//             img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
+//         };
 
-        res.status(200).json(carWithPublicUrls);
-    } catch (e) {
-        console.log("Error :", e.message);
-        res.status(400).json({ error: e.message });
-    }
-};
+//         res.status(200).json(carWithPublicUrls);
+//     } catch (e) {
+//         console.log("Error :", e.message);
+//         res.status(400).json({ error: e.message });
+//     }
+// };
 
 
 // const updateCar = async(req,res,next)=>{
@@ -195,6 +195,53 @@ const getCarById = async (req, res, next) => {
 //     res.status(400).json({ error: e.message });
 //   }
 // };
+
+
+const getCar = async (req, res, next) => {
+  try {
+      // Always enforce https:// in production
+      const baseUrl = `https://${req.get('host')}`;
+
+      const getCarList = await Car.find();
+
+      const carsWithPublicUrls = getCarList.map(car => {
+          return {
+              ...car.toObject(),
+              img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
+          };
+      });
+
+      res.status(200).json(carsWithPublicUrls);
+
+  } catch (e) {
+      console.error("Error:", e.message);
+      res.status(500).json({ error: e.message });
+  }
+};
+
+
+const getCarById = async (req, res, next) => {
+  try {
+      // Always enforce https://
+      const baseUrl = `https://${req.get('host')}`;
+
+      const car = await Car.findById(req.params.id);
+
+      if (!car) {
+          return res.status(404).json({ message: "Car not found" });
+      }
+
+      const carWithPublicUrls = {
+          ...car.toObject(),
+          img: car.img.map(path => `${baseUrl}/${path.replace(/\\/g, '/')}`)
+      };
+
+      res.status(200).json(carWithPublicUrls);
+  } catch (e) {
+      console.log("Error :", e.message);
+      res.status(400).json({ error: e.message });
+  }
+};
 
 const updateCar = async (req, res, next) => {
   try {
